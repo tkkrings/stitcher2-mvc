@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:fragment="head">
+    <meta charset="UTF-8"/>
+    <title th:text="${title}">Stitchr</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<nav th:fragment="navigation">
+    <a href="/stitchr" class="btn btn-info" role="button">List</a>
+    <a href="/stitchr/add" class="btn btn-info" role="button">Add to Stash</a>
+    <a href="/stitchr/remove" class="btn btn-info" role="button">Remove from Stash</a>
+    <a href="/stitchr/newUser/add" class="btn btn-info" role="button">New User</a>
+    <a href="/stitchr/upload/" class="btn btn-info" role="button">Upload</a>
+</nav>
+
+</body>
+</html>

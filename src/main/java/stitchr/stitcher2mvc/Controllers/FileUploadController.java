@@ -19,7 +19,6 @@ import stitchr.stitcher2mvc.storage.StorageService;
 
 
 @Controller
-@RequestMapping("upload")
 public class FileUploadController {
     private final StorageService storageService;
 
@@ -28,7 +27,7 @@ public class FileUploadController {
         this.storageService = storageService;
     }
 
-    @GetMapping("/")
+    @GetMapping("upload")
     public String listUploadedFiles(Model model) throws IOException {
         model.addAttribute("title", "Upload Image");
         model.addAttribute("files", storageService.loadAll().map(path ->
@@ -45,7 +44,7 @@ public class FileUploadController {
         return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getFilename() + "\"").body(file);
     }
 
-    @PostMapping("/")
+    @PostMapping("upload")
     public String handleFileUpload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) {
 
         storageService.store(file);

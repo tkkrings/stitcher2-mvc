@@ -19,7 +19,7 @@ import stitchr.stitcher2mvc.storage.StorageService;
 
 
 @Controller
-@RequestMapping("stitchr/upload")
+@RequestMapping("upload")
 public class FileUploadController {
     private final StorageService storageService;
 
@@ -34,7 +34,7 @@ public class FileUploadController {
         model.addAttribute("files", storageService.loadAll().map(path ->
                 MvcUriComponentsBuilder.fromMethodName(FileUploadController.class, "serveFile",
                         path.getFileName().toString()).build().toString()).collect(Collectors.toList()));
-        return "uploadForm";
+        return "stitchr/images/uploadForm";
     }
 
     @GetMapping("/files/{filename:.+}")
@@ -51,7 +51,7 @@ public class FileUploadController {
         storageService.store(file);
         redirectAttributes.addFlashAttribute("message", "You successfully uploaded " + file.getOriginalFilename() + "!");
 
-        return "redirect:/";
+        return "stitchr/images/uploadStatus";
     }
 
     @ExceptionHandler(StorageFileNotFoundException.class)

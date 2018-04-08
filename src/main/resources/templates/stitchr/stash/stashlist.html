@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+<h1 th:text="${title}"></h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<p th:unless="${yarns} and ${yarns.size()}">Stash is empty :(</p>
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Colorway</th>
+        <th>Weight</th>
+        <th>Details</th>
+        <th>Projects</th>
+    </tr>
+    <tr th:each="yarn : ${yarns}">
+        <td th:text="${yarn.name}"></td>
+        <td th:text="${yarn.colorway}"></td>
+        <td th:text="${yarn.weight}"></td>
+        <td th:text="${yarn.details}"></td>
+        <td th:text="${yarn.projects}"></td>
+    </tr>
+
+</table>
+
+</body>
+</html>

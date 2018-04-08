@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}"></h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<form method="post" style="max-width:600px;">
+    <div class="form-group">
+        <label for="name-field">Name</label>
+        <input class="form-control" id="name-field" type="text" name="Name" />
+    </div>
+
+    <div class="form-group">
+        <label for="color-field">Colorway</label>
+        <input class="form-control" id="color-field" type="text" name="Colorway" />
+    </div>
+
+    <div class="form-group">
+        <label for="weight-field">Weight</label>
+        <input class="form-control" id="weight-field" type="text" name="Weight" />
+    </div>
+
+    <div class="form-group">
+        <label for="details-field">Details</label>
+        <input class="form-control" id="details-field" type="text" name="Details" />
+    </div>
+
+    <div class="form-group">
+        <label for="projects-field">Projects</label>
+        <input class="form-control" id="projects-field" type="text" name="Projects" />
+    </div>
+
+    <input type="submit" value="Add to Stash" />
+</form>
+
+</body>
+</html>

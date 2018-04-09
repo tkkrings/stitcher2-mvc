@@ -17,7 +17,7 @@ public class StashController {
     @RequestMapping(value = "")
     public String index(Model model) {
         model.addAttribute("yarns", YarnData.getAll());
-        model.addAttribute("title", "Yarn");
+        model.addAttribute("title", "Your Yarn Stash");
 
         return "stitchr/stash/stashlist";
     }

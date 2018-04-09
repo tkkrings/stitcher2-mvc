@@ -26,7 +26,7 @@ import stitchr.stitcher2mvc.storage.StorageService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class Stitcher2MvcApplicationTests {
+public class FileUploadIntegrationTests {
 
 	@Autowired
 	private TestRestTemplate restTemplate;

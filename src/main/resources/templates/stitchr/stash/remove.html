@@ -11,8 +11,8 @@
 <form method="post">
 
     <div th:each="yarn : ${yarns}" class="checkbox">
-        <input type="checkbox" name="yarnIDs" th:value="${yarn.yarnID}" th:id="${yarn.yarnID}"/>
-        <label th:for="${yarn.yarnID}" th:text="${yarn.name}"></label>
+        <input type="checkbox" name="yarnIds" th:value="${yarn.id}" th:id="${yarn.id}"/>
+        <label th:for="${yarn.id}" th:text="${yarn.name}"></label>
         <br />
     </div>
 

@@ -1,19 +1,29 @@
 package stitchr.stitcher2mvc.models;
 
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+@Entity
 public class Yarn {
 
+    @Id
+    @GeneratedValue
+    private int id;
+
+    @NotNull
+    @Size(min=1, message = "You must provide a name for your yarn")
     private String name;
+
     private String colorway;
     private String weight;
     private String details;
     private String projects;
 
-    private int yarnID;
-
-    private static int nextID = 1;
-
     public Yarn(String name, String colorway, String weight, String details, String projects) {
-        this();
         this.name = name;
         this.colorway = colorway;
         this.weight = weight;
@@ -21,9 +31,10 @@ public class Yarn {
         this.projects = projects;
     }
 
-    public Yarn() {
-        yarnID = nextID;
-        nextID++;
+    public Yarn() { }
+
+    public int getId() {
+        return id;
     }
 
     public String getName() {
@@ -66,11 +77,4 @@ public class Yarn {
         this.projects = projects;
     }
 
-    public int getYarnID() {
-        return yarnID;
-    }
-
-    public void setYarnID(int yarnID) {
-        this.yarnID = yarnID;
-    }
 }

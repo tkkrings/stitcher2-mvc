@@ -30,7 +30,7 @@ public class AuthenticationInterceptor extends HandlerInterceptorAdapter {
 
             Integer userId = (Integer) request.getSession().getAttribute(AbstractController.userSessionKey);
 
-            if (userId = != null) {
+            if (userId != null) {
                 User user = userDao.findOne(userId);
 
                 if (user != null)

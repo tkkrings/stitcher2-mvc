@@ -2,13 +2,13 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <meta charset="UTF-8"/>
-<title>Title</title>
+
 <body class="container">
 <h1 th:text="${title}">Default Title</h1>
 
 <nav th:replace="fragments :: navigation"></nav>
 
-<h1 th:text="${'Welcome ' + user.username + '!'}"></h1>
+<h1>Welcome, <span th:text="{user.username}"></span></h1>
 
 </body>
 </html>

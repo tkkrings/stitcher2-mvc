@@ -7,7 +7,6 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import stitchr.stitcher2mvc.models.data.UserDao;
 import stitchr.stitcher2mvc.models.forms.LoginForm;
 import stitchr.stitcher2mvc.models.forms.RegisterForm;
 

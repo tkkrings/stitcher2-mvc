@@ -2,6 +2,7 @@ package stitchr.stitcher2mvc.Controllers;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import stitchr.stitcher2mvc.models.User;
 import stitchr.stitcher2mvc.models.data.UserDao;
@@ -18,7 +19,7 @@ public abstract class AbstractController {
 
     protected User getUserFromSession(HttpSession session) {
         Integer userId = (Integer) session.getAttribute(userSessionKey);
-        return userId == null ? null : userDao.findOne(userId);
+        return userId == null ? null : userDao.findByUid(userId);
     }
 
     protected void setUserInSession(HttpSession session, User user) {

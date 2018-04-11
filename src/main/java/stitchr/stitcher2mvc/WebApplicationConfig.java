@@ -3,23 +3,16 @@ package stitchr.stitcher2mvc;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-import stitchr.stitcher2mvc.Controllers.AuthenticationController;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 
 @Configuration
-public class WebApplicationConfig extends WebMvcConfigurerAdapter {
+public class WebApplicationConfig implements WebMvcConfigurer {
 
     @Bean
     public AuthenticationInterceptor authenticationInterceptor() {
 
         return new AuthenticationInterceptor();
-    }
-
-    @Bean
-    public AuthenticationController authenticationController() {
-
-        return new AuthenticationController();
     }
 
     @Override

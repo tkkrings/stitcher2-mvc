@@ -1,7 +1,6 @@
 package stitchr.stitcher2mvc.models;
 
 
-import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
@@ -20,6 +19,7 @@ public abstract class AbstractEntity {
     }
 
     protected void setUid(int uid) {
+
         this.uid = uid;
     }
 }

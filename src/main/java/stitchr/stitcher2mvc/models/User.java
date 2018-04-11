@@ -20,14 +20,9 @@ public class User extends AbstractEntity{
     private String pwHash;
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
-    public User() {}
 
     public User(String username, String password) {
         super();
-
-        if (!isValidUsername(username)) {
-            throw new IllegalArgumentException("Invalid username");
-        }
 
         this.username = username;
         this.pwHash = hashPassword(password);
@@ -36,30 +31,36 @@ public class User extends AbstractEntity{
     @NotNull
     @Column(name = "pwhash")
     public String getPwHash() {
+
         return pwHash;
     }
 
     @SuppressWarnings("unused")
     private void setPwHash(String pwHash) {
+
         this.pwHash = pwHash;
     }
 
     @NotNull
     @Column(name = "username", unique = true)
     public String getUsername() {
+
         return username;
     }
 
     private static String hashPassword(String password) {
+
         return encoder.encode(password);
     }
 
     @SuppressWarnings("unused")
     private void setUsername(String username) {
+
         this.username = username;
     }
 
     public boolean isMatchingPassword(String password) {
+
         return encoder.matches(password, pwHash);
     }
 

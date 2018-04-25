@@ -14,14 +14,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("register")
 public class AuthenticationController extends AbstractController {
 
     @RequestMapping(value = "register")
     public String registerForm(Model model) {
         model.addAttribute(new RegisterForm());
         model.addAttribute("title", "Register");
-        return "stitcher/user/register";
+        return "stitchr/user/register";
     }
 
     @RequestMapping(value = "register", method = RequestMethod.POST)

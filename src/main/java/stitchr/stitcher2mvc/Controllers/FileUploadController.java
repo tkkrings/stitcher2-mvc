@@ -14,6 +14,8 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+
+
 import stitchr.stitcher2mvc.storage.StorageFileNotFoundException;
 import stitchr.stitcher2mvc.storage.StorageService;
 
@@ -49,6 +51,8 @@ public class FileUploadController {
 
         storageService.store(file);
         redirectAttributes.addFlashAttribute("message", "You successfully uploaded " + file.getOriginalFilename() + "!");
+
+
 
         return "redirect:/upload";
     }

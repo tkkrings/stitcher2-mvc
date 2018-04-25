@@ -5,31 +5,29 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
-
 @Entity
 @Table(name = "user")
-public class User extends AbstractEntity{
+public class User extends AbstractEntity {
 
     private String username;
     private String pwHash;
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
 
+    public User() {}
+
     public User(String username, String password) {
-        super();
 
         this.username = username;
         this.pwHash = hashPassword(password);
     }
 
-    @NotNull
-    @Column(name = "pwhash")
+    @Column(name = "pwhash", nullable = false)
     public String getPwHash() {
 
         return pwHash;
@@ -41,7 +39,6 @@ public class User extends AbstractEntity{
         this.pwHash = pwHash;
     }
 
-    @NotNull
     @Column(name = "username", unique = true)
     public String getUsername() {
 

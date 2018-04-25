@@ -23,24 +23,32 @@ public class AuthenticationInterceptor extends HandlerInterceptorAdapter {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException {
 
         // All publicly available pages here
-        List<String> nonAuthPages = Arrays.asList("login", "register");
+        List<String> authPages = Arrays.asList("index", "stitchr/user/login", "stitchr/user/register");
 
         // These pages require sign-in
-        if ( !nonAuthPages.contains(request.getRequestURI()) ) {
+        if (authPages.contains(request.getRequestURI())) {
 
+            boolean isLoggedIn = false;
+            User user;
             Integer userId = (Integer) request.getSession().getAttribute(AbstractController.userSessionKey);
 
             if (userId != null) {
-                User user = userDao.findByUid(userId);
+                user = userDao.findByUid(userId);
 
-                if (user != null)
-                    return true;
+                if (user != null) {
+                    isLoggedIn = true;
+
+                }
             }
 
-            response.sendRedirect("login");
-            return false;
+            if (!isLoggedIn) {
+                response.sendRedirect("login");
+                return false;
+            }
         }
 
-        return true;
+            return true;
     }
+
+
 }

@@ -3,8 +3,8 @@ body {
 }
 
 a:link, a:visited {
-    background-color: #f44336;
-    color: white;
+    background-color: #e7e7e7;
+    color: black;
     padding: 14px 25px;
     text-align: center;
     text-decoration: none;

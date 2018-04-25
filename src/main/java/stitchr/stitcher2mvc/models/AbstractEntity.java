@@ -1,25 +1,32 @@
 package stitchr.stitcher2mvc.models;
 
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import org.hibernate.mapping.PrimaryKey;
+
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 
 @MappedSuperclass
-public abstract class AbstractEntity {
+@IdClass(User.class)
+public abstract class AbstractEntity implements Serializable {
 
     private int uid;
 
     @Id
     @GeneratedValue
     @NotNull
+    @Column(name = "uid", unique = true)
+
     public int getUid() {
-        return this.uid;
+
+        return uid;
     }
 
     protected void setUid(int uid) {
 
         this.uid = uid;
+
     }
+
 }

@@ -26,4 +26,6 @@ public class Stitcher2MvcApplication {
 			storageService.init();
 		};
 	}
+
+
 }

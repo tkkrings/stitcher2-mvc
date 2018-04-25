@@ -2,7 +2,6 @@ package stitchr.stitcher2mvc.Controllers;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import stitchr.stitcher2mvc.models.User;
 import stitchr.stitcher2mvc.models.data.UserDao;

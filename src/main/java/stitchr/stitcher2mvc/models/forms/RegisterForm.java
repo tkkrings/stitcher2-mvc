@@ -6,9 +6,11 @@ public class RegisterForm extends LoginForm {
 
     @NotNull(message = "Passwords do not match")
     private String verifyPassword;
+    private String password;
 
     @Override
     public void setPassword(String password) {
+        this.password = password;
         super.setPassword(password);
         checkPasswordForRegistration();
     }

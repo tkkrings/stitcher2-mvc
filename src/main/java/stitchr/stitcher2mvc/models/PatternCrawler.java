@@ -5,21 +5,41 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.jsoup.Jsoup;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.io.IOException;
 import java.util.HashSet;
 
-
+@Entity
 public class PatternCrawler {
 
+    @Id
+    @GeneratedValue
+    private int id;
+
     private static final int MAX_DEPTH = 2;
-    private static HashSet<String> links;
+    private HashSet<String> links;
+
 
     public PatternCrawler() {
-
         links = new HashSet<>();
     }
 
-    public static void getPatterns(String URL, int depth) {
+
+    public PatternCrawler(HashSet<String> links) {
+        this.links = links;
+    }
+
+    public HashSet<String> getLinks() {
+        return links;
+    }
+
+    public void setLinks(HashSet<String> links) {
+        this.links = links;
+    }
+
+    public void getPatterns(String URL, int depth) {
         if ((!links.contains(URL) && (depth < MAX_DEPTH))) {
             System.out.println(">> Depth: " + depth + " [" + URL + "]" );
             try {

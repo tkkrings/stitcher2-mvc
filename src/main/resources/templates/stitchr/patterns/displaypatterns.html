@@ -13,8 +13,8 @@
         <th>Pattern Links</th>
     </tr>
 
-    <tr th:each="link : ${patterns}"></tr>
-        <td th:text="${link.links}"></td>
+    <ul th:each="link : ${patterns}"></ul>
+        <li th:text="${link.links}"></li>
 
 </table>
 

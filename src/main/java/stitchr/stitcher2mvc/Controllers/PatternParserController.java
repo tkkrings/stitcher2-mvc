@@ -14,10 +14,10 @@ public class PatternParserController {
 
     @GetMapping("patterns")
     public String displaypatterns(Model model) throws IOException {
-        model.addAttribute("title", "Patterns");
-        new PatternCrawler().getPatterns("http://www.allfreeknitting.com/tag/Full-Patterns", 0);
+        model.addAttribute("title", "patterns");
+        new PatternCrawler().getPatterns("https://www.yarnplaza.com/patterns/knitting-patterns", 0);
 
-        return "redirect:/patterns";
+        return "stitchr/patterns/displaypatterns";
     }
 
 }

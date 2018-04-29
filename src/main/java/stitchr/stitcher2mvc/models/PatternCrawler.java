@@ -26,12 +26,10 @@ public class PatternCrawler {
                 links.add(URL);
 
                 Document document = Jsoup.connect(URL).get();
-                Elements linksOnPage = document.select("a[href]");
+                Elements linksOnPage = document.select("h2 a href");
 
                 depth++;
-                for (Element page : linksOnPage) {
-                    getPatterns(page.attr("abs:href"), depth);
-                }
+                for (Element link : linksOnPage) getPatterns(link.attr("a href"), depth);
             } catch (IOException e) {
                 System.err.println("For '" + URL + "': " + e.getMessage());
             }

@@ -21,7 +21,8 @@ public class PatternParserController {
     public String displaypatterns(Model model) throws IOException {
         model.addAttribute("title", "patterns");
         new PatternCrawler().getPatterns("https://www.yarnplaza.com/patterns/knitting-patterns", 0);
-
+        model.addAttribute("patterns", "patterns");
+        model.addAttribute("links", PatternCrawler.getLinks());
         return "stitchr/patterns/displaypatterns";
     }
 

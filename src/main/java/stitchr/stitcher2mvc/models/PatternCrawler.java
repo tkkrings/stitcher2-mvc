@@ -19,7 +19,7 @@ public class PatternCrawler {
     private int id;
 
     private static final int MAX_DEPTH = 2;
-    private HashSet<String> links;
+    private static HashSet<String> links;
 
 
     public PatternCrawler() {
@@ -31,7 +31,7 @@ public class PatternCrawler {
         this.links = links;
     }
 
-    public HashSet<String> getLinks() {
+    public static HashSet<String> getLinks() {
         return links;
     }
 

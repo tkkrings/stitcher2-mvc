@@ -8,14 +8,11 @@
 <nav th:replace="fragments :: navigation"></nav>
 
 
-<table class="table">
-    <tr>
-        <th>Pattern Links</th>
-    </tr>
+<h1>Pattern Links</h1>
 
-    <ul th:each="link : ${patterns}"></ul>
-        <li th:text="${link.links}"></li>
-
+    <ul>
+        <li th:each="link : ${links}" th:utext="${link}"></li>
+    </ul>
 </table>
 
 </body>

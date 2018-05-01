@@ -18,20 +18,21 @@ public class PatternCrawler {
     @GeneratedValue
     private int id;
 
-    private static final int MAX_DEPTH = 2;
-    private static HashSet<String> links;
+    private static final int MAX_DEPTH = 4;
+
+    private HashSet<String> links;
 
 
     public PatternCrawler() {
+
         links = new HashSet<>();
     }
-
 
     public PatternCrawler(HashSet<String> links) {
         this.links = links;
     }
 
-    public static HashSet<String> getLinks() {
+    public HashSet<String> getLinks() {
         return links;
     }
 
@@ -40,8 +41,9 @@ public class PatternCrawler {
     }
 
     public void getPatterns(String URL, int depth) {
+
         if ((!links.contains(URL) && (depth < MAX_DEPTH))) {
-            System.out.println(">> Depth: " + depth + " [" + URL + "]" );
+            System.out.println(">> Depth: " + depth + "[" + URL + "]");
             try {
                 links.add(URL);
 
@@ -49,7 +51,8 @@ public class PatternCrawler {
                 Elements linksOnPage = document.select("h2 a href");
 
                 depth++;
-                for (Element link : linksOnPage) getPatterns(link.attr("a href"), depth);
+                for (Element page : linksOnPage) getPatterns(page.attr("abs:href"), depth);
+
             } catch (IOException e) {
                 System.err.println("For '" + URL + "': " + e.getMessage());
             }

@@ -11,7 +11,9 @@
 <h1>Pattern Links</h1>
 
     <ul>
-        <li  th:each="link : ${links}" th:text="${link}"></li>
+        <li  th:each="link : ${links}">
+            <a th:href="${link}" th:text="${link}"/>
+        </li>
     </ul>
 
 

@@ -25,6 +25,8 @@ public class PatternParserController {
         patterns.getPatterns("https://www.ravelry.com/patterns/search#craft=knitting", 3);
         model.addAttribute("links", patterns.getLinks());
 
+        patternDao.save(patterns);
+
         return "stitchr/patterns/displaypatterns";
     }
 

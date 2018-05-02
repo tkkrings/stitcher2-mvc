@@ -19,13 +19,4 @@ public class Stitcher2MvcApplication {
 		SpringApplication.run(Stitcher2MvcApplication.class, args);
 	}
 
-	@Bean
-	CommandLineRunner init(StorageService storageService) {
-		return (args) -> {
-			storageService.deleteAll();
-			storageService.init();
-		};
-	}
-
-
 }

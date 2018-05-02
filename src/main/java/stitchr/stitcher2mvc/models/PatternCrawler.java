@@ -26,6 +26,18 @@ public class PatternCrawler {
         links = new HashSet<>();
     }
 
+    public PatternCrawler(HashSet<String> links) {
+        this.links = links;
+    }
+
+    public static HashSet<String> getLinks() {
+        return links;
+    }
+
+    public void setLinks(HashSet<String> links) {
+        this.links = links;
+    }
+
     public static void getPatterns(String URL, int depth) {
         if ((!links.contains(URL) && (depth < MAX_DEPTH))) {
             System.out.println(">> Depth: " + depth + " [" + URL + "]" );

@@ -18,7 +18,7 @@ public class PatternCrawler {
     @GeneratedValue
     private int id;
 
-    private static final int MAX_DEPTH = 2;
+    private static final int MAX_DEPTH = 10;
     private static HashSet<String> links;
 
     public PatternCrawler() {

@@ -19,14 +19,15 @@ public class PatternParserController {
 
     @GetMapping("patterns")
     public String displaypatterns(Model model) throws IOException {
+        model.addAttribute("title", "links");
+        new PatternCrawler().getPatterns("https://www.ravelry.com/patterns/search#craft=knitting", 3);
 
-        PatternCrawler patterns = new PatternCrawler();
-        patterns.getPatterns("http://www.yarnplaza.com/patterns/knitting-patterns", 3);
-        model.addAttribute("links", patterns.getLinks());
+        //PatternCrawler patterns = new PatternCrawler();
+        //patterns.getPatterns("https://www.ravelry.com/patterns/search#craft=knitting", 3);
+        //model.addAttribute("links", patterns.getLinks());
 
 
         //model.addAttribute("title", "patterns");
-        //new PatternCrawler().getPatterns("http://www.yarnplaza.com/patterns/knitting-patterns", 3);
 
         return "stitchr/patterns/displaypatterns";
     }

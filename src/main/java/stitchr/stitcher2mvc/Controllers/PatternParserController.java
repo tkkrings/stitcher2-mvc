@@ -22,7 +22,7 @@ public class PatternParserController {
         model.addAttribute("title", "Patterns");
         new PatternCrawler().getPatterns("https://www.ravelry.com/patterns/search#craft=knitting", 0);
 
- //       patternDao.save(links);
+        //       patternDao.save(links);
 
         return "stitchr/patterns/displaypatterns";
     }

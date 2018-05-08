@@ -38,7 +38,8 @@ img:hover {
 <div>
     <ul>
         <li th:each="file : ${files}">
-            <a th:target="_blank" href="@{file}">
+            <a th:target="_blank" th:href="${file}">
+                <a th:href="${file}" th:text="${file}" />
             <img th:src="${file}" alt="file"/>
             </a>
         </li>

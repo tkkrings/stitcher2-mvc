@@ -3,15 +3,14 @@ body {
 }
 
 a:link, a:visited {
-    background-color: #e7e7e7;
-    color: black;
-    padding: 14px 25px;
+    color: #000080;
+    padding: 7px 12px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
 
 a:hover, a:active {
-    background-color: hotpink;
+    background-color: #d487ff;
 }
 
 img {
